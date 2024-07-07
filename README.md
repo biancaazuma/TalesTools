@@ -109,6 +109,10 @@ Voce pode copiar e substituir a pastar `Profile` de sua versao anterior do 4RToo
 ### Versão 2.7.0
 - [x] Corrigido Autobuff-Stuffs de Poção do Furor Mágico
 
+### Versão 2.7.1
+- [x] Inclusão de desmontar da rédea ao usar skill
+- [x] Troca de flecha/munição ao usar skill (tentativa de sincronizar entre os ataques)
+
 ## Original Features
 - [x] ON/OFF Button (with shortcut key)
 - [x] Autopot
