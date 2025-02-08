@@ -30,9 +30,11 @@ namespace _4RTools.Utils
         INSPIRATION = 407,
         [Description("Aegis Domini")]
         SHIELDSPELL = 1316,
-
-        [Description("Milagre Solar, Lunar e Estelar")]
+        
+        [Description("Espirito de Classe")]
         SPIRIT = 1401,
+        [Description("Milagre Solar, Lunar e Estelar")]
+        MIRACLE = 2113,
         [Description("Calor Solar, Lunar, Estelar")]
         WARM = 165,
         [Description("Proteção Solar")]
