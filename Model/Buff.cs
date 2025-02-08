@@ -181,7 +181,7 @@ namespace _4RTools.Model
                 new Buff("Brisa Leve (Sagrado)", EffectStatusIDs.ASPERSIO, Resources._4RTools.Icons.tk_mild_holy),
                 new Buff("Brisa Leve (Sombrio)", EffectStatusIDs.PROPERTYDARK, Resources._4RTools.Icons.tk_mild_shadow),
                 new Buff("Cambalhota", EffectStatusIDs.DODGE_ON, Resources._4RTools.Icons.tumbling),
-                new Buff("Milagre Solar, Lunar e Estelar", EffectStatusIDs.SPIRIT, Resources._4RTools.Icons.solar_miracle),
+                new Buff("Milagre Solar, Lunar e Estelar", EffectStatusIDs.MIRACLE, Resources._4RTools.Icons.solar_miracle),
                 new Buff("Calor Solar, Lunar, Estelar", EffectStatusIDs.WARM, Resources._4RTools.Icons.sun_warm),
                 new Buff("Proteção Solar", EffectStatusIDs.SUN_COMFORT, Resources._4RTools.Icons.sun_comfort),
                 new Buff("Proteção Lunar", EffectStatusIDs.MOON_COMFORT, Resources._4RTools.Icons.moon_comfort),
