@@ -61,7 +61,7 @@ namespace _4RTools.Model
 
         private static string LoadLocalServerFile()
         {
-             string startJson = "[\r\n  {\r\n    \"name\": \"rtales.bin\",\r\n    \"description\": \"Ragna Tales\",\r\n    \"hpAddress\": \"0x015874D0\",\r\n    \"nameAddress\": \"0x0158A120\",\r\n    \"mapAddress\": \"0x01583574\"\r\n  }\r\n]";
+             string startJson = "[\r\n  {\r\n    \"name\": \"rtales.bin\",\r\n    \"description\": \"Ragna Tales\",\r\n    \"hpAddress\": \"0x015874D0\",\r\n    \"nameAddress\": \"0x0158A120\",\r\n    \"mapAddress\": \"0x01583574\"\r\n  },\r\n  {\r\n    \"name\": \"rtales\",\r\n    \"description\": \"Ragna Tales EXE\",\r\n    \"hpAddress\": \"0x015874D0\",\r\n    \"nameAddress\": \"0x0158A120\",\r\n    \"mapAddress\": \"0x01583574\"\r\n  }\r\n]";
             if (!File.Exists(localServerName))
             {
                 FileStream f = File.Create(localServerName);
@@ -70,7 +70,7 @@ namespace _4RTools.Model
                 return startJson;
             }
             string json = File.ReadAllText(localServerName);
-            if (string.IsNullOrEmpty(json) || json.Length < 10)
+            if (string.IsNullOrEmpty(json) || json.Length < 189)
             {
                 File.WriteAllText(localServerName, startJson);
                 return startJson;
