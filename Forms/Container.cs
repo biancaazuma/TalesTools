@@ -16,6 +16,7 @@ namespace _4RTools.Forms
         private string currentProfile;
         List<ClientDTO> clients = new List<ClientDTO>();
         private ToggleApplicationStateForm frmToggleApplication = new ToggleApplicationStateForm();
+
         public Container()
         {
             this.subject.Attach(this);
@@ -48,9 +49,14 @@ namespace _4RTools.Forms
             SetAutoSwitchHealWindow();
             SetConfigWindow();
 
+            // Aplicar cores após carregar todos os controles
+            this.Load += (sender, e) => {
+                SetBackGroundColorOfMDIForm();
+                SetTabControlColors(this);
+            };
+
             //TrackerSingleton.Instance().SendEvent("desktop_login", "page_view", "desktop_container_load");
         }
-
 
         public void addform(TabPage tp, Form f)
         {
@@ -71,9 +77,64 @@ namespace _4RTools.Forms
             {
                 if ((ctl) is MdiClient)
                 {
-                    ctl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(34)))));
+                    ctl.BackColor = System.Drawing.Color.Black; // Mudança: usar Color.Black
                 }
 
+                // Aplicar cor preta nos TabControls diretos
+                if (ctl is TabControl)
+                {
+                    TabControl tabControl = (TabControl)ctl;
+                    tabControl.BackColor = System.Drawing.Color.Black;
+                    tabControl.ForeColor = System.Drawing.Color.White;
+
+                    // Aplicar cor preta em todas as abas
+                    foreach (TabPage tabPage in tabControl.TabPages)
+                    {
+                        tabPage.BackColor = System.Drawing.Color.Black;
+                        tabPage.ForeColor = System.Drawing.Color.White;
+                    }
+                }
+            }
+
+            // Aplicar cores recursivamente em todos os controles aninhados
+            SetTabControlColors(this);
+        }
+
+        // Método para aplicar cores pretas em todos os TabControls recursivamente
+        private void SetTabControlColors(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is TabControl)
+                {
+                    TabControl tabControl = (TabControl)control;
+                    tabControl.BackColor = System.Drawing.Color.Black;
+                    tabControl.ForeColor = System.Drawing.Color.White;
+
+                    foreach (TabPage tabPage in tabControl.TabPages)
+                    {
+                        tabPage.BackColor = System.Drawing.Color.Black;
+                        tabPage.ForeColor = System.Drawing.Color.White;
+                    }
+                }
+
+                // Recursivamente verificar controles filhos
+                if (control.HasChildren)
+                {
+                    SetTabControlColors(control);
+                }
+            }
+        }
+
+        // Override do método OnPaint para garantir que as cores sejam mantidas
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+            // Aplicar cores após cada repaint se necessário
+            if (this.Created && !this.IsDisposed)
+            {
+                SetTabControlColors(this);
             }
         }
 
@@ -91,6 +152,75 @@ namespace _4RTools.Forms
             this.refreshProcessList();
             this.refreshProfileList();
             this.profileCB.SelectedItem = "Default";
+
+            // Conexão automática com ragnatales.bin
+            AutoConnectToRagnaTales();
+
+            // Aplicar cores após o carregamento completo
+            SetBackGroundColorOfMDIForm();
+            SetTabControlColors(this);
+        }
+
+        private void AutoConnectToRagnaTales()
+        {
+            try
+            {
+                // Procura pelo processo rtales.bin na lista de processos
+                foreach (Process p in Process.GetProcesses())
+                {
+                    if (p.MainWindowTitle != "" && (p.ProcessName.ToLower() == "rtales" || p.ProcessName.ToLower() == "rtales.bin"))
+                    {
+                        // Verifica se o cliente está na lista de clientes suportados
+                        if (!ClientListSingleton.ExistsByProcessName(p.ProcessName))
+                        {
+                            continue; // Pula se não estiver na lista de clientes suportados
+                        }
+
+                        // Encontrou o processo rtales.bin, conecta automaticamente
+                        string processString = string.Format("{0}.exe - {1}", p.ProcessName, p.Id);
+
+                        // Verifica se o processo existe na lista da ComboBox
+                        bool processExists = false;
+                        foreach (var item in this.processCB.Items)
+                        {
+                            if (item.ToString() == processString)
+                            {
+                                processExists = true;
+                                break;
+                            }
+                        }
+
+                        if (processExists)
+                        {
+                            // Seleciona automaticamente o processo
+                            this.processCB.SelectedItem = processString;
+
+                            // Conecta ao cliente
+                            Client client = new Client(processString);
+                            ClientSingleton.Instance(client);
+
+                            // Lê o nome do personagem e atualiza a interface
+                            string charName = client.ReadCharacterName();
+                            characterName.Text = charName;
+
+                            // Notifica sobre a mudança de processo
+                            subject.Notify(new Utils.Message(Utils.MessageCode.PROCESS_CHANGED, null));
+
+                            // Opcional: Mostrar mensagem de sucesso (comentado para não ser intrusivo)
+                            // MessageBox.Show($"Conectado automaticamente ao RagnaTales!\nPersonagem: {charName}", 
+                            //                "TalesTools - Conexão Automática", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            break; // Para após encontrar e conectar o primeiro processo
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Em caso de erro, falha silenciosamente para não interromper o carregamento do aplicativo
+                // Opcional: Log do erro para debug
+                System.Diagnostics.Debug.WriteLine($"Erro na conexão automática: {ex.Message}");
+            }
         }
 
         public void refreshProfileList()
@@ -111,11 +241,32 @@ namespace _4RTools.Forms
             {
                 this.processCB.Items.Clear();
             });
+
             foreach (Process p in Process.GetProcesses())
             {
                 if (p.MainWindowTitle != "" && ClientListSingleton.ExistsByProcessName(p.ProcessName))
                 {
-                    this.processCB.Items.Add(string.Format("{0}.exe - {1}", p.ProcessName, p.Id));
+                    string processString = string.Format("{0}.exe - {1}", p.ProcessName, p.Id);
+                    this.processCB.Items.Add(processString);
+
+                    // Verifica se é o RagnaTales e se ainda não está conectado
+                    if ((p.ProcessName.ToLower() == "rtales" || p.ProcessName.ToLower() == "rtales.bin") &&
+                        (ClientSingleton.GetClient() == null || this.processCB.SelectedItem == null))
+                    {
+                        try
+                        {
+                            // Conecta automaticamente
+                            this.processCB.SelectedItem = processString;
+                            Client client = new Client(processString);
+                            ClientSingleton.Instance(client);
+                            characterName.Text = client.ReadCharacterName();
+                            subject.Notify(new Utils.Message(Utils.MessageCode.PROCESS_CHANGED, null));
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine($"Erro na conexão automática durante refresh: {ex.Message}");
+                        }
+                    }
                 }
             }
         }
@@ -164,7 +315,8 @@ namespace _4RTools.Forms
             {
                 try
                 {
-                    if (currentProfile != null) {
+                    if (currentProfile != null)
+                    {
                         this.frmToggleApplication.TurnOFF();
                     }
                     ProfileSingleton.ClearProfile(this.profileCB.Text);
@@ -381,5 +533,10 @@ namespace _4RTools.Forms
         }
 
         #endregion
+
+        private void tabPageProfiles_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
