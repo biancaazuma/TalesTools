@@ -15,7 +15,8 @@ namespace _4RTools.Utils
         [Description("Provocar")]
         PROVOKE = 2015,
         PROPERTYUNDEAD = 97,
-
+        [Description("Proteção Quimica Total")]
+        FULL_PROTECTION = 2045,
         MISTY_FROST = 1141,
         OVERHEAT = 373,
         [Description("Vigor")]

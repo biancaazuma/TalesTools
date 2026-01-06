@@ -117,6 +117,7 @@ namespace _4RTools.Model
                 new Buff("Bater em Retirada", EffectStatusIDs.HOM_AVOID, Resources._4RTools.Icons.hom_avoid),
                 new Buff("Planta Sanguessuga", EffectStatusIDs.BLOOD_SUCKER_PLANT, Resources._4RTools.Icons.blood_sucker_plant),
                 new Buff("Superaquecimento", EffectStatusIDs.OVERHEATING, Resources._4RTools.Icons.overheating),
+                new Buff("Proteção Quimica Total", EffectStatusIDs.FULL_PROTECTION, Resources._4RTools.Icons.full_protection),
             };
 
             return skills;
