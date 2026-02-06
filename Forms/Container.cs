@@ -356,11 +356,6 @@ namespace _4RTools.Forms
             }
         }
 
-        private void containerResize(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized) { this.Hide(); }
-        }
-
         private void LoadServers(List<ClientDTO> clients)
         {
             foreach (ClientDTO clientDTO in clients)
