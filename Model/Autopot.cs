@@ -202,7 +202,6 @@ namespace _4RTools.Model
         {
             string currentMap = roClient.ReadCurrentMap();
             bool hasAntiBot = hasBuff(roClient, EffectStatusIDs.ANTI_BOT);
-            bool hasBerserk = hasBuff(roClient, EffectStatusIDs.BERSERK);
             bool isCompetitive = hasBuff(roClient, EffectStatusIDs.COMPETITIVA);
             bool stopHealCity = ProfileSingleton.GetCurrent().UserPreferences.stopHealCity;
             bool isInCityList = this.listCities.Contains(currentMap);
@@ -210,7 +209,6 @@ namespace _4RTools.Model
             bool stopOpenChat = ProfileSingleton.GetCurrent().UserPreferences.stopWithChat;
 
             bool canHeal = !hasAntiBot
-                && !hasBerserk
                 && !isCompetitive
                 && !(hasOpenChat && stopOpenChat)
                 && !(stopHealCity && isInCityList);
