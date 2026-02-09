@@ -50,6 +50,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblequipBefore = new System.Windows.Forms.Label();
             this.lblequipAfter = new System.Windows.Forms.Label();
+            this.txtSpEquipBefore = new System.Windows.Forms.TextBox();
+            this.txtSpEquipAfter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtHPpct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxHP)).BeginInit();
@@ -290,6 +292,28 @@
             this.lblequipAfter.Text = "Equipa Depois";
             this.lblequipAfter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtSpEquipBefore
+            // 
+            this.txtSpEquipBefore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            this.txtSpEquipBefore.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSpEquipBefore.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSpEquipBefore.ForeColor = System.Drawing.Color.White;
+            this.txtSpEquipBefore.Location = new System.Drawing.Point(191, 73);
+            this.txtSpEquipBefore.Name = "txtSpEquipBefore";
+            this.txtSpEquipBefore.Size = new System.Drawing.Size(45, 23);
+            this.txtSpEquipBefore.TabIndex = 58;
+            // 
+            // txtSpEquipAfter
+            // 
+            this.txtSpEquipAfter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(51)))), ((int)(((byte)(56)))));
+            this.txtSpEquipAfter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSpEquipAfter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSpEquipAfter.ForeColor = System.Drawing.Color.White;
+            this.txtSpEquipAfter.Location = new System.Drawing.Point(243, 73);
+            this.txtSpEquipAfter.Name = "txtSpEquipAfter";
+            this.txtSpEquipAfter.Size = new System.Drawing.Size(45, 23);
+            this.txtSpEquipAfter.TabIndex = 59;
+            // 
             // AutopotForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +321,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(45)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(300, 150);
+            this.Controls.Add(this.txtSpEquipBefore);
+            this.Controls.Add(this.txtSpEquipAfter);
             this.Controls.Add(this.txtHpEquipBefore);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtHpEquipAfter);
@@ -356,5 +382,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblequipBefore;
         private System.Windows.Forms.Label lblequipAfter;
+        private System.Windows.Forms.TextBox txtSpEquipBefore;
+        private System.Windows.Forms.TextBox txtSpEquipAfter;
     }
 }

@@ -55,6 +55,8 @@ namespace _4RTools.Forms
             this.txtAutopotDelay.Text = this.autopot.delay.ToString();
             this.txtHpEquipBefore.Text = this.autopot.hpEquipBefore.ToString();
             this.txtHpEquipAfter.Text = this.autopot.hpEquipAfter.ToString();
+            this.txtSpEquipBefore.Text = this.autopot.spEquipBefore.ToString();
+            this.txtSpEquipAfter.Text = this.autopot.spEquipAfter.ToString();
             this.chkStopWitchFC.Checked = this.autopot.stopWitchFC;
             RadioButton rdHealFirst = (RadioButton)this.Controls[ProfileSingleton.GetCurrent().Autopot.firstHeal];
             if (rdHealFirst != null) { rdHealFirst.Checked = true; };
@@ -71,7 +73,12 @@ namespace _4RTools.Forms
             txtHpEquipAfter.KeyDown += new System.Windows.Forms.KeyEventHandler(FormUtils.OnKeyDown);
             txtHpEquipAfter.KeyPress += new KeyPressEventHandler(FormUtils.OnKeyPress);
             txtHpEquipAfter.TextChanged += new EventHandler(this.txtHpEquipAfterTextChange);
-
+            txtSpEquipBefore.KeyDown += new System.Windows.Forms.KeyEventHandler(FormUtils.OnKeyDown);
+            txtSpEquipBefore.KeyPress += new KeyPressEventHandler(FormUtils.OnKeyPress);
+            txtSpEquipBefore.TextChanged += new EventHandler(this.txtSpEquipBeforeTextChange);
+            txtSpEquipAfter.KeyDown += new System.Windows.Forms.KeyEventHandler(FormUtils.OnKeyDown);
+            txtSpEquipAfter.KeyPress += new KeyPressEventHandler(FormUtils.OnKeyPress);
+            txtSpEquipAfter.TextChanged += new EventHandler(this.txtSpEquipAfterTextChange);
         }
 
         private void onHpTextChange(object sender, EventArgs e)
@@ -159,6 +166,22 @@ namespace _4RTools.Forms
         {
             Key key = (Key)Enum.Parse(typeof(Key), txtHpEquipBefore.Text.ToString());
             this.autopot.hpEquipBefore = key;
+            ProfileSingleton.SetConfiguration(this.autopot);
+            this.ActiveControl = null;
+        }
+
+        private void txtSpEquipAfterTextChange(object sender, EventArgs e)
+        {
+            Key key = (Key)Enum.Parse(typeof(Key), txtSpEquipAfter.Text.ToString());
+            this.autopot.spEquipAfter = key;
+            ProfileSingleton.SetConfiguration(this.autopot);
+            this.ActiveControl = null;
+        }
+
+        private void txtSpEquipBeforeTextChange(object sender, EventArgs e)
+        {
+            Key key = (Key)Enum.Parse(typeof(Key), txtSpEquipBefore.Text.ToString());
+            this.autopot.spEquipBefore = key;
             ProfileSingleton.SetConfiguration(this.autopot);
             this.ActiveControl = null;
         }
