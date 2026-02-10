@@ -398,24 +398,6 @@ namespace _4RTools.Utils
         [Description("Espreitar")]
         CHASEWALK = 182,
 
-        [Description("Arsenal")]
-        ARSENAL = 2242,
-        [Description("Escudo de Fé")]
-        FAITH_SHIELD = 2220,
-        [Description("Rapsódia Improvisada")]
-        STAGE_HARMONY = 2226,
-        [Description("Poção da Fúria Química")]
-        CHEMICAL_FURY_POTION = 2235,
-        [Description("Benção do Devoto")]
-        BLESSING_DEVOTEE = 5034,
-        [Description("Modo Sennin")]
-        SENNIN_MODE = 2241,
-        [Description("Cólera do Dragão")]
-        DRAGONS_WRATH = 2238,
-        [Description("Ascensão Espiritual")]
-        SPIRITUAL_ASCENSION = 2240,
-        [Description("Furor")]
-        HEAT_BARREL = 759,
     }
 
 }

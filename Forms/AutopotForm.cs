@@ -24,8 +24,6 @@ namespace _4RTools.Forms
                 this.lblequipAfter.Hide();
                 this.txtHpEquipAfter.Hide();
                 this.txtHpEquipBefore.Hide();
-                this.txtSpEquipAfter.Hide();
-                this.txtSpEquipBefore.Hide();
             }
             subject.Attach(this);
             this.isYgg = isYgg;
