@@ -37,6 +37,7 @@ namespace _4RTools.Model
                 new Buff("Dança com Lobos", EffectStatusIDs.DANCE_WITH_WUG, Resources._4RTools.Icons.dance_with_wug),
                 new Buff("Anel dos Nibelungos", EffectStatusIDs.RINGNIBELUNGEN, Resources._4RTools.Icons.ring_nibelungen),
                 new Buff("Rufar dos Tambores", EffectStatusIDs.DRUMBATTLEFIELD, Resources._4RTools.Icons.drumbattlefield),
+                new Buff("Rapsódia Improvisada", EffectStatusIDs.STAGE_HARMONY, Resources._4RTools.Icons.stage_harmony),
             };
 
             return skills;
@@ -71,6 +72,7 @@ namespace _4RTools.Model
                 new Buff("Divina Providência", EffectStatusIDs.PROVIDENCE, Resources._4RTools.Icons.providence),
                 new Buff("Força Titânica", EffectStatusIDs.THURISAZ, Resources._4RTools.Icons.giant_growth),
                 new Buff("Justa", EffectStatusIDs.JUSTA, Resources._4RTools.Icons.justa),
+                new Buff("Escudo de Fé", EffectStatusIDs.FAITH_SHIELD, Resources._4RTools.Icons.faith_shield),
             };
 
             return skills;
@@ -118,6 +120,7 @@ namespace _4RTools.Model
                 new Buff("Planta Sanguessuga", EffectStatusIDs.BLOOD_SUCKER_PLANT, Resources._4RTools.Icons.blood_sucker_plant),
                 new Buff("Superaquecimento", EffectStatusIDs.OVERHEATING, Resources._4RTools.Icons.overheating),
                 new Buff("Proteção Quimica Total", EffectStatusIDs.FULL_PROTECTION, Resources._4RTools.Icons.full_protection),
+                new Buff("Poção da Fúria Química", EffectStatusIDs.CHEMICAL_FURY_POTION, Resources._4RTools.Icons.chemical_fury_potion),
             };
 
             return skills;
@@ -137,7 +140,7 @@ namespace _4RTools.Model
                 new Buff("Furtividade", EffectStatusIDs.CLOAKING, Resources._4RTools.Icons.cloaking),
                 new Buff("Desejo das Sombras", EffectStatusIDs.AUTOSHADOWSPELL, Resources._4RTools.Icons.autoshadowspell),
                 new Buff("Espreitar", EffectStatusIDs.CHASEWALK, Resources._4RTools.Icons.chase_walk),
-                new Buff("Adaga de Arremesso", EffectStatusIDs.BOOMERANG_DAGGER, Resources._4RTools.Icons.boomerang_dagger),
+                new Buff("Dança Vampirica", EffectStatusIDs.BOOMERANG_DAGGER, Resources._4RTools.Icons.boomerang_dagger),
                 new Buff("Banho de Toxinas", EffectStatusIDs.POISON_SHOWER, Resources._4RTools.Icons.poison_shower),
 
             };
@@ -168,6 +171,7 @@ namespace _4RTools.Model
                 new Buff("Renovatio", EffectStatusIDs.RENOVATIO, Resources._4RTools.Icons.renovatio),
                 new Buff("Punho Embriagado", EffectStatusIDs.DRUNK_PUNCH, Resources._4RTools.Icons.drunk_punch),
                 new Buff("Estilo Yin/Yang", EffectStatusIDs.YINYANG_STYLE, Resources._4RTools.Icons.yinyang_style),
+                new Buff("Benção do Devoto", EffectStatusIDs.BLESSING_DEVOTEE, Resources._4RTools.Icons.blessing_devotee),
             };
 
             return skills;
@@ -183,6 +187,7 @@ namespace _4RTools.Model
                 new Buff("Inspiração", EffectStatusIDs.IZAYOI, Resources._4RTools.Icons.izayoi),
                 new Buff("Imagem Falsa", EffectStatusIDs.BUNSINJYUTSU, Resources._4RTools.Icons.bunsinjyutsu),
                 new Buff("Clone das Sombras", EffectStatusIDs.SHADOW_CLONE, Resources._4RTools.Icons.shadow_clone),
+                new Buff("Modo Sennin", EffectStatusIDs.SENNIN_MODE, Resources._4RTools.Icons.sennin_mode),
             };
 
             return skills;
@@ -213,6 +218,8 @@ namespace _4RTools.Model
                 new Buff("Kaahi", EffectStatusIDs.KAAHI, Resources._4RTools.Icons.kaahi),
                 new Buff("Corrida", EffectStatusIDs.RUN, Resources._4RTools.Icons.run),
                 new Buff("Projeção Espiritual", EffectStatusIDs.SOUL_PROJECTION, Resources._4RTools.Icons.soul_projection),
+                new Buff("Ascensão Espiritual", EffectStatusIDs.SPIRITUAL_ASCENSION, Resources._4RTools.Icons.spiritual_ascension),
+                new Buff("Cólera do Dragão", EffectStatusIDs.DRAGONS_WRATH, Resources._4RTools.Icons.dragons_wrath),
 
             };
 
@@ -230,6 +237,8 @@ namespace _4RTools.Model
                 new Buff("Aumentar Precisão", EffectStatusIDs.ACCURACY, Resources._4RTools.Icons.increase_accuracy),
                 new Buff("Reação Ilimitada", EffectStatusIDs.E_CHAIN, Resources._4RTools.Icons.e_chain),
                 new Buff("Bala Mágica", EffectStatusIDs.MAGICAL_BULLET, Resources._4RTools.Icons.magical_bullet),
+                new Buff("Furor", EffectStatusIDs.HEAT_BARREL, Resources._4RTools.Icons.heat_barrel),
+                new Buff("Arsenal", EffectStatusIDs.ARSENAL, Resources._4RTools.Icons.arsenal),
             };
 
             return skills;
