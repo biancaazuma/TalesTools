@@ -233,6 +233,16 @@ namespace _4RTools.Resources._4RTools {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap apple_idum {
+            get {
+                object obj = ResourceManager.GetObject("apple_idum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arsenal {
             get {
                 object obj = ResourceManager.GetObject("arsenal", resourceCulture);
@@ -256,6 +266,16 @@ namespace _4RTools.Resources._4RTools {
         internal static System.Drawing.Bitmap asc_edp {
             get {
                 object obj = ResourceManager.GetObject("asc_edp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap assassin_cross {
+            get {
+                object obj = ResourceManager.GetObject("assassin_cross", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

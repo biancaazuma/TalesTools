@@ -37,7 +37,9 @@ namespace _4RTools.Model
                 new Buff("Dança com Lobos", EffectStatusIDs.DANCE_WITH_WUG, Resources._4RTools.Icons.dance_with_wug),
                 new Buff("Anel dos Nibelungos", EffectStatusIDs.RINGNIBELUNGEN, Resources._4RTools.Icons.ring_nibelungen),
                 new Buff("Rufar dos Tambores", EffectStatusIDs.DRUMBATTLEFIELD, Resources._4RTools.Icons.drumbattlefield),
-                new Buff("Rapsódia Improvisada", EffectStatusIDs.STAGE_HARMONY, Resources._4RTools.Icons.stage_harmony),
+                new Buff("Crepúsculo Sangrento", EffectStatusIDs.ASSASSIN_CROSS, Resources._4RTools.Icons.assassin_cross),
+                new Buff("Maçãs de Idun", EffectStatusIDs.APPLEIDUN, Resources._4RTools.Icons.apple_idum),
+                new Buff("Holofote", EffectStatusIDs.STAGE_HARMONY, Resources._4RTools.Icons.stage_harmony),
             };
 
             return skills;
@@ -217,7 +219,6 @@ namespace _4RTools.Model
                 new Buff("Kaizel", EffectStatusIDs.KAIZEL, Resources._4RTools.Icons.kaizel),
                 new Buff("Kaahi", EffectStatusIDs.KAAHI, Resources._4RTools.Icons.kaahi),
                 new Buff("Corrida", EffectStatusIDs.RUN, Resources._4RTools.Icons.run),
-                new Buff("Projeção Espiritual", EffectStatusIDs.SOUL_PROJECTION, Resources._4RTools.Icons.soul_projection),
                 new Buff("Ascensão Espiritual", EffectStatusIDs.SPIRITUAL_ASCENSION, Resources._4RTools.Icons.spiritual_ascension),
                 new Buff("Cólera do Dragão", EffectStatusIDs.DRAGONS_WRATH, Resources._4RTools.Icons.dragons_wrath),
 
