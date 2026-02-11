@@ -86,7 +86,7 @@ namespace _4RTools.Utils
             foreach (Control n in numericUpDown)
             {
                 NumericUpDown numeric = (NumericUpDown)n;
-                numeric.Value = 0;
+                numeric.Value = numeric.Minimum;
             }
         }
 

@@ -38,7 +38,7 @@ namespace _4RTools.Forms
             {
                 case MessageCode.PROFILE_CHANGED:
                     BuffRenderer.doUpdate(new Dictionary<EffectStatusIDs, Key>(ProfileSingleton.GetCurrent().AutobuffSkill.buffMapping), this);
-                    this.numericDelay.Value = ProfileSingleton.GetCurrent().AutobuffSkill.delay;
+                    ConfigureDelay();
                     break;
                 case MessageCode.TURN_OFF:
                     ProfileSingleton.GetCurrent().AutobuffSkill.Stop();
@@ -49,6 +49,18 @@ namespace _4RTools.Forms
             }
         }
 
+        private void ConfigureDelay()
+        {
+            int configuredDelay = ProfileSingleton.GetCurrent().AutobuffSkill.delay;
+            int minDelay = (int)this.numericDelay.Minimum;
+            if (configuredDelay < minDelay)
+            {
+                configuredDelay = minDelay;
+                ProfileSingleton.GetCurrent().AutobuffSkill.delay = configuredDelay;
+                ProfileSingleton.SetConfiguration(ProfileSingleton.GetCurrent().AutobuffSkill);
+            }
+            this.numericDelay.Value = configuredDelay;
+        }
         private void btnResetAutobuff_Click(object sender, EventArgs e)
         {
             ProfileSingleton.GetCurrent().AutobuffSkill.ClearKeyMapping();
