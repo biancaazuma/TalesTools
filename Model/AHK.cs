@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Threading;
-using System.Windows.Input;
-using System.Drawing;
-using _4RTools.Utils;
+﻿using _4RTools.Utils;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace _4RTools.Model
 {
@@ -66,7 +67,7 @@ namespace _4RTools.Model
             {
                 foreach (KeyConfig config in AhkEntries.Values)
                 {
-                    Keys thisk = (Keys)Enum.Parse(typeof(Keys), config.key.ToString());
+                    Keys thisk = FormUtils.ConvertKeyToWinFormsKey(config.key);
                     if (!Keyboard.IsKeyDown(Key.LeftAlt) && !Keyboard.IsKeyDown(Key.RightAlt))
                     {
                         if (config.ClickActive && Keyboard.IsKeyDown(config.key))
@@ -87,7 +88,7 @@ namespace _4RTools.Model
             {
                 foreach (KeyConfig config in AhkEntries.Values)
                 {
-                    Keys thisk = (Keys)Enum.Parse(typeof(Keys), config.key.ToString());
+                    Keys thisk = FormUtils.ConvertKeyToWinFormsKey(config.key);
                     _AHKSynchronous(roClient, config, thisk);
                 }
             }
@@ -95,7 +96,7 @@ namespace _4RTools.Model
             {
                 foreach (KeyConfig config in AhkEntries.Values)
                 {
-                    Keys thisk = (Keys)Enum.Parse(typeof(Keys), config.key.ToString());
+                    Keys thisk = FormUtils.ConvertKeyToWinFormsKey(config.key);
                     this._AHKSpeedBoost(roClient, config, thisk);
                 }
             }
@@ -267,7 +268,7 @@ namespace _4RTools.Model
 
         private Keys toKeys(Key k)
         {
-            return (Keys)Enum.Parse(typeof(Keys), k.ToString());
+            return FormUtils.ConvertKeyToWinFormsKey(k);
         }
 
         private void _AHKNoClick(Client roClient, KeyConfig config, Keys thisk)

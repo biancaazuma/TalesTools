@@ -235,7 +235,7 @@ namespace _4RTools.Model
 
         private Keys toKeys(Key k)
         {
-            return (Keys)Enum.Parse(typeof(Keys), k.ToString());
+            return FormUtils.ConvertKeyToWinFormsKey(k);
         }
 
         public void Stop()

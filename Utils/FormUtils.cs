@@ -18,8 +18,26 @@ namespace _4RTools.Utils
             {
                 TextBox textBox = (TextBox)sender;
                 Key thisk;
+                string keyDisplayName = string.Empty;
 
-                thisk = (Key)Enum.Parse(typeof(Key), e.KeyCode.ToString());
+                // Mapeamento de teclas ABNT2 especiais
+                switch (e.KeyCode)
+                {
+                    case Keys.Oemplus:
+                        keyDisplayName = "OemPlus";
+                        break;
+                    case Keys.Oemcomma:
+                        keyDisplayName = "OemComma";
+                        break;
+                    case Keys.Oemtilde:
+                        keyDisplayName = "OemTilde";
+                        break;
+                    default:
+                        keyDisplayName = e.KeyCode.ToString();
+                        break;
+                }
+
+                thisk = (Key)Enum.Parse(typeof(Key), keyDisplayName);
 
                 switch (thisk)
                 {
@@ -156,6 +174,27 @@ namespace _4RTools.Utils
             return configuredDelay;
         }
 
+        public static Keys ConvertKeyToWinFormsKey(Key key)
+        {
+            try
+            {
+                switch (key)
+                {
+                    case Key.OemPlus:
+                        return Keys.Oemplus;
+                    case Key.OemComma:
+                        return Keys.Oemcomma;
+                    case Key.OemTilde:
+                        return Keys.Oemtilde;
+                    default:
+                        return (Keys)Enum.Parse(typeof(Keys), key.ToString());
+                }
+            }
+            catch
+            {
+                return Keys.None;
+            }
+        }
     }
     public static class EnumExtensions
     {
@@ -218,7 +257,7 @@ namespace _4RTools.Utils
                 {
                     _wasPressed = true;
                     _lastSent = DateTime.Now;
-                    Keys winKey = (Keys)Enum.Parse(typeof(Keys), PriorityKey.ToString());
+                    Keys winKey = FormUtils.ConvertKeyToWinFormsKey(PriorityKey);
                     Thread.Sleep(PriorityDelay);
                     Interop.PostMessage(GameWindowHandle, Constants.WM_KEYDOWN_MSG_ID, winKey, 0);
                     Thread.Sleep(1);

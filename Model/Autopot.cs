@@ -194,7 +194,7 @@ namespace _4RTools.Model
 
         private void pressKey(Key key)
         {
-            Keys k = (Keys)Enum.Parse(typeof(Keys), key.ToString());
+            Keys k = FormUtils.ConvertKeyToWinFormsKey(key);
             if ((k != Keys.None) && !Keyboard.IsKeyDown(Key.LeftAlt) && !Keyboard.IsKeyDown(Key.RightAlt))
             {
                 Interop.PostMessage(ClientSingleton.GetClient().process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, k, 0); // keydown
