@@ -58,7 +58,7 @@
             this.FoodsGP.Location = new System.Drawing.Point(12, 122);
             this.FoodsGP.Name = "FoodsGP";
             this.FoodsGP.Size = new System.Drawing.Size(520, 30);
-            this.FoodsGP.TabIndex = 293;
+            this.FoodsGP.TabIndex = 292;
             this.FoodsGP.TabStop = false;
             this.FoodsGP.Text = "Foods";
             // 
@@ -154,13 +154,12 @@
             0});
             this.numericDelay.Name = "numericDelay";
             this.numericDelay.Size = new System.Drawing.Size(60, 20);
-            this.numericDelay.TabIndex = 302;
+            this.numericDelay.TabIndex = 293;
             this.numericDelay.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.numericDelay.ValueChanged += new System.EventHandler(this.numericDelay_TextChanged);
             // 
             // label5
             // 

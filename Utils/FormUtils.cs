@@ -135,6 +135,26 @@ namespace _4RTools.Utils
             resetForm(group);
         }
 
+        public static int EnsureMinimumDelay(NumericUpDown control, int configuredDelay, Action<int> persistAction = null)
+        {
+            int min = (int)control.Minimum;
+            if (configuredDelay < min)
+            {
+                configuredDelay = min;
+                persistAction?.Invoke(configuredDelay);
+            }
+
+            if (control.InvokeRequired)
+            {
+                control.Invoke((Action)(() => control.Value = configuredDelay));
+            }
+            else
+            {
+                control.Value = configuredDelay;
+            }
+
+            return configuredDelay;
+        }
 
     }
     public static class EnumExtensions

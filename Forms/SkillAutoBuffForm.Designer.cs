@@ -206,7 +206,6 @@
             0,
             0,
             0});
-            this.numericDelay.ValueChanged += new System.EventHandler(this.numericDelay_TextChanged);
             // 
             // label5
             // 
