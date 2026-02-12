@@ -94,15 +94,21 @@ namespace _4RTools.Model
 
         private static string LoadLocalCityNameFile()
         {
+            string startJson = "[\r\n  \"prontera\",\r\n  \"morocc\",\r\n  \"geffen\",\r\n  \"payon\",\r\n  \"alberta\",\r\n  \"izlude\",\r\n  \"aldebaran\",\r\n  \"xmas\",\r\n  \"comodo\",\r\n  \"yuno\",\r\n  \"amatsu\",\r\n  \"gonryun\",\r\n  \"umbala\",\r\n  \"niflheim\",\r\n  \"louyang\",\r\n  \"jawaii\",\r\n  \"ayothaya\",\r\n  \"einbroch\",\r\n  \"lighthalzen\",\r\n  \"einbech\",\r\n  \"hugel\",\r\n  \"rachel\",\r\n  \"veins\",\r\n  \"moscovia\",\r\n  \"brasilis\",\r\n  \"harboro1\",\r\n  \"wave_vip\",\r\n  \"moc_para01\",\r\n  \"party_room\",    \r\n  \"market_01\",\r\n  \"market_02\",\r\n  \"verus04\",\r\n  \"map_events\",\r\n  \"pay_arche\",\r\n  \"ecl_tdun04\",\r\n  \"purgatory\",\r\n  \"prt_monk\"\r\n]";
+
             if (!File.Exists(localCityName))
             {
-                string startJson = "[\r\n  \"prontera\",\r\n  \"morocc\",\r\n  \"geffen\",\r\n  \"payon\",\r\n  \"alberta\",\r\n  \"izlude\",\r\n  \"aldebaran\",\r\n  \"xmas\",\r\n  \"comodo\",\r\n  \"yuno\",\r\n  \"amatsu\",\r\n  \"gonryun\",\r\n  \"umbala\",\r\n  \"niflheim\",\r\n  \"louyang\",\r\n  \"jawaii\",\r\n  \"ayothaya\",\r\n  \"einbroch\",\r\n  \"lighthalzen\",\r\n  \"einbech\",\r\n  \"hugel\",\r\n  \"rachel\",\r\n  \"veins\",\r\n  \"moscovia\",\r\n  \"brasilis\",\r\n  \"harboro1\",\r\n  \"wave_vip\",\r\n  \"moc_para01\",\r\n  \"party_room\",    \r\n  \"market_01\",\r\n  \"market_02\",\r\n  \"verus04\",\r\n  \"map_events\",\r\n  \"pay_arche\",\r\n  \"ecl_tdun04\",\r\n  \"purgatory\",\r\n  \"prt_monk\"\r\n]";
                 FileStream f = File.Create(localCityName);
                 f.Close();
                 File.WriteAllText(localCityName, startJson);
                 return startJson;
             }
             string json = File.ReadAllText(localCityName);
+            if (string.IsNullOrEmpty(json) || json.Length < 520)
+            {
+                File.WriteAllText(localCityName, startJson);
+                return startJson;
+            }
             return json;
         }
 
