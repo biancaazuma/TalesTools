@@ -112,15 +112,12 @@ namespace _4RTools.Model
                             {
                                 if (chainConfig.instrumentKey != Key.None)
                                 {
-                                    //Press instrument key if exists.
-                                    Keys instrumentKey = (Keys)Enum.Parse(typeof(Keys), chainConfig.instrumentKey.ToString());
-                                    Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, instrumentKey, 0);
+                                    Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, FormUtils.ConvertKeyToWinFormsKey(chainConfig.instrumentKey), 0);
                                     Thread.Sleep(30);
                                 }
 
-                                Keys thisk = (Keys)Enum.Parse(typeof(Keys), macroKey.key.ToString());
                                 Thread.Sleep(macroKey.delay);
-                                Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, thisk, 0);
+                                Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, FormUtils.ConvertKeyToWinFormsKey(macroKey.key), 0);
 
                                 if (macroKey.hasClick)
                                 {
@@ -131,9 +128,7 @@ namespace _4RTools.Model
 
                                 if (chainConfig.daggerKey != Key.None)
                                 {
-                                    //Press instrument key if exists.
-                                    Keys daggerKey = (Keys)Enum.Parse(typeof(Keys), chainConfig.daggerKey.ToString());
-                                    Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, daggerKey, 0);
+                                    Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, FormUtils.ConvertKeyToWinFormsKey(chainConfig.daggerKey), 0);
                                     Thread.Sleep(30);
                                 }
 

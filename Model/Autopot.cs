@@ -28,6 +28,9 @@ namespace _4RTools.Model
         public Key hpEquipBefore { get; set; }
         public Key hpEquipAfter { get; set; }
 
+        public Key spEquipBefore { get; set; }
+        public Key spEquipAfter { get; set; }
+
         public string actionName { get; set; }
         private _4RThread thread;
         [JsonIgnore]
@@ -103,12 +106,12 @@ namespace _4RTools.Model
 
         private void healHP(Client roClient, int hpPotCount, bool hasCriticalWound)
         {
-            bool equipedBefore = false;
+            bool equipedHpBefore = false;
             if (roClient.IsHpBelow(hpPercent) && this.actionName == ACTION_NAME_AUTOPOT && ((!this.stopWitchFC && hasCriticalWound) || !hasCriticalWound))
             {
                 pressKey(this.hpEquipBefore);
                 pressKey(this.hpEquipBefore);
-                equipedBefore = true;
+                equipedHpBefore = true;
             }
             while (roClient.IsHpBelow(hpPercent))
             {
@@ -134,22 +137,26 @@ namespace _4RTools.Model
                 }
                 Thread.Sleep(this.delay);
             }
-            if (equipedBefore)
+            if (equipedHpBefore)
             {
                 pressKey(this.hpEquipAfter);
                 pressKey(this.hpEquipAfter);
             }
             if (roClient.IsSpBelow(spPercent))
             {
-                hpPotCount = 0;
-                pressKey(this.spKey);
-                Thread.Sleep(this.delay);
-                return;
+                healSP(roClient, hpPotCount, hasCriticalWound);
             }
         }
 
         private void healSP(Client roClient, int hpPotCount, bool hasCriticalWound)
         {
+            bool equipedSpBefore = false;
+            if (roClient.IsSpBelow(spPercent) && this.actionName == ACTION_NAME_AUTOPOT)
+            {
+                pressKey(this.spEquipBefore);
+                pressKey(this.spEquipBefore);
+                equipedSpBefore = true;
+            }
             while (roClient.IsSpBelow(spPercent))
             {
                 if (!canHeal(roClient))
@@ -174,24 +181,20 @@ namespace _4RTools.Model
                 }
                 Thread.Sleep(this.delay);
             }
+            if (equipedSpBefore)
+            {
+                pressKey(this.spEquipAfter);
+                pressKey(this.spEquipAfter);
+            }
             if (roClient.IsHpBelow(hpPercent))
             {
-                if (this.actionName == ACTION_NAME_AUTOPOT_YGG)
-                {
-                    pressKey(this.hpKey);
-                    hpPotCount++;
-                }
-                else if (this.actionName == ACTION_NAME_AUTOPOT && ((!this.stopWitchFC && hasCriticalWound) || !hasCriticalWound))
-                {
-                    pressKey(this.hpKey);
-                    hpPotCount++;
-                }
+                healHP(roClient, hpPotCount, hasCriticalWound);
             }
         }
 
         private void pressKey(Key key)
         {
-            Keys k = (Keys)Enum.Parse(typeof(Keys), key.ToString());
+            Keys k = FormUtils.ConvertKeyToWinFormsKey(key);
             if ((k != Keys.None) && !Keyboard.IsKeyDown(Key.LeftAlt) && !Keyboard.IsKeyDown(Key.RightAlt))
             {
                 Interop.PostMessage(ClientSingleton.GetClient().process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, k, 0); // keydown
@@ -202,7 +205,6 @@ namespace _4RTools.Model
         {
             string currentMap = roClient.ReadCurrentMap();
             bool hasAntiBot = hasBuff(roClient, EffectStatusIDs.ANTI_BOT);
-            bool hasBerserk = hasBuff(roClient, EffectStatusIDs.BERSERK);
             bool isCompetitive = hasBuff(roClient, EffectStatusIDs.COMPETITIVA);
             bool stopHealCity = ProfileSingleton.GetCurrent().UserPreferences.stopHealCity;
             bool isInCityList = this.listCities.Contains(currentMap);
@@ -210,7 +212,6 @@ namespace _4RTools.Model
             bool stopOpenChat = ProfileSingleton.GetCurrent().UserPreferences.stopWithChat;
 
             bool canHeal = !hasAntiBot
-                && !hasBerserk
                 && !isCompetitive
                 && !(hasOpenChat && stopOpenChat)
                 && !(stopHealCity && isInCityList);

@@ -53,7 +53,7 @@ namespace _4RTools.Model
                 {
                     if (rKey != Key.None)
                     {
-                        Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, (Keys)Enum.Parse(typeof(Keys), rKey.ToString()), 0);
+                        Interop.PostMessage(roClient.process.MainWindowHandle, Constants.WM_KEYDOWN_MSG_ID, FormUtils.ConvertKeyToWinFormsKey(rKey), 0);
                     }
                 }
             }

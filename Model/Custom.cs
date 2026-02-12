@@ -44,7 +44,7 @@ namespace _4RTools.Model
                 var TiMode = ProfileSingleton.GetCurrent().Custom.tiMode;
                 if (!TiMode.Equals(Key.None) && Keyboard.IsKeyDown(TiMode))
                 {
-                    _AHKTransferBoost(roClient, new KeyConfig(TiMode, true), (Keys)Enum.Parse(typeof(Keys), TiMode.ToString()));
+                    _AHKTransferBoost(roClient, new KeyConfig(TiMode, true), FormUtils.ConvertKeyToWinFormsKey(TiMode));
                     return 0;
                 }
             }

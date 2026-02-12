@@ -847,4 +847,40 @@
   <data name="yinyang_style" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\..\assets\images\yinyang_style.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="full_protection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\full_protection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arsenal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\arsenal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blessing_devotee" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\blessing_devotee.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="chemical_fury_potion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\chemical_fury_potion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dragons_wrath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\dragons_wrath.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="faith_shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\faith_shield.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sennin_mode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\sennin_mode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spiritual_ascension" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\spiritual_ascension.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stage_harmony" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\stage_harmony.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heat_barrel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\heat_barrel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apple_idum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\apple_idum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="assassin_cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\..\assets\images\assassin_cross.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -474,7 +474,6 @@ namespace _4RTools.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TalesTools";
             this.Load += new System.EventHandler(this.Container_Load);
-            this.Resize += new System.EventHandler(this.containerResize);
             atkDefMode.ResumeLayout(false);
             this.panelFooter.ResumeLayout(false);
             this.panelFooter.PerformLayout();

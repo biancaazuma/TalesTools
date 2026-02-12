@@ -15,7 +15,8 @@ namespace _4RTools.Utils
         [Description("Provocar")]
         PROVOKE = 2015,
         PROPERTYUNDEAD = 97,
-
+        [Description("Proteção Quimica Total")]
+        FULL_PROTECTION = 2045,
         MISTY_FROST = 1141,
         OVERHEAT = 373,
         [Description("Vigor")]
@@ -155,6 +156,9 @@ namespace _4RTools.Utils
         UNLIMIT = 722,
         [Description("Poema de Bragi")]
         POEMBRAGI = 72,
+        [Description("Crepúsculo Sangrento")]
+        ASSASSIN_CROSS = 71,
+        [Description("Maçãs de Idun")]
         APPLEIDUN = 73,
         [Description("Sinfonia dos Ventos")]
         RUSH_WINDMILL = 442,
@@ -397,6 +401,24 @@ namespace _4RTools.Utils
         [Description("Espreitar")]
         CHASEWALK = 182,
 
+        [Description("Arsenal")]
+        ARSENAL = 2242,
+        [Description("Escudo de Fé")]
+        FAITH_SHIELD = 2220,
+        [Description("Holofote")]
+        STAGE_HARMONY = 2226,
+        [Description("Poção da Fúria Química")]
+        CHEMICAL_FURY_POTION = 2235,
+        [Description("Benção do Devoto")]
+        BLESSING_DEVOTEE = 2236,
+        [Description("Modo Sennin")]
+        SENNIN_MODE = 2241,
+        [Description("Cólera do Dragão")]
+        DRAGONS_WRATH = 2238,
+        [Description("Ascensão Espiritual")]
+        SPIRITUAL_ASCENSION = 2240,
+        [Description("Furor")]
+        HEAT_BARREL = 759,
     }
 
 }
